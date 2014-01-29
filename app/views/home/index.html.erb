@@ -1,0 +1,9 @@
+<% content_for :main do %>
+	<main class="home">
+		<h1>Let's Fight.</h1>
+		<h2><%= @current.intro_message %></time></h2>
+		<%= link_to 'Learn More &raquo;'.html_safe, '/about', class: 'button' 					if @current.is(:upcoming, :announced) %>
+		<%= link_to 'Register Now &raquo;'.html_safe, '/register', class: 'button' 				if @current.is(:announced, :happening) %>
+		<%= link_to 'See Highlights &raquo;'.html_safe, '/workshops/current', class: 'button' 	if @current.is(:happened) %>
+	</main>
+<% end %>

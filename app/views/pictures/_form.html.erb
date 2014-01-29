@@ -1,0 +1,5 @@
+<%= semantic_form_for @picture, url: workshop_pictures_path do |f| %>
+  <%= f.input :picture %>
+  <%= f.input :workshop_id, as: :hidden, value: @workshop.year%>
+  <%= f.submit %>
+<% end %>

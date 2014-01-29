@@ -1,0 +1,55 @@
+@import 'compass/css3';
+
+.faq-row {
+  .faq {
+  
+    position: relative;
+    padding: .5em;
+    
+    .answer {
+      font-style: italic;
+      padding: 1.5em 1.5em .5em;
+      > summary { 
+        padding-right: 95%; 
+        position: absolute; 
+        top: 1.5em; 
+        left: .5em; 
+      }
+    }
+    
+    .question {
+      padding: .5em;
+      position: relative;
+      left: 1em;
+      top: 1.5em;
+      margin-top: -1em;
+      font-weight: bold;
+      
+    }
+    
+    .new-faq {
+      clear: both;
+    }
+    
+    details.no-det {
+      display: block;
+      visibility: hidden;
+      
+      > summary {
+        display: block;
+        visibility: visible;
+        &:before { 
+          content: "►"; 
+          padding-right: 5px; 
+          transition: .6s linear;
+          cursor: pointer;
+        }
+      }
+      
+      &[open] {
+        visibility: visible;
+        > summary:before { content:'▼'; }; 
+      } 
+    }
+  }
+}

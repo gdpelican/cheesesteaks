@@ -1,0 +1,3 @@
+<h1>Teachers <%= "at the #{@workshop.year} workshop" if @workshop %></h1>
+<%= list_for_view @teachers %>
+<%= link_to "Back to the #{@workshop.year} workshop", workshop_path(@workshop.year), class: 'button' %>

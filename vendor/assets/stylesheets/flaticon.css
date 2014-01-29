@@ -1,0 +1,42 @@
+
+@font-face {
+	font-family: "Flaticon";
+	src: url("flaticon.eot");
+	src: url("flaticon.eot#iefix") format("embedded-opentype"),
+	url("flaticon.woff") format("woff"),
+	url("flaticon.ttf") format("truetype"),
+	url("flaticon.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+	font-family: Flaticon;
+	font-size: 1.25em;
+	font-style: normal;
+	position: relative;
+}
+
+.flaticon-bus:before { 		content: "\e008"; }
+.flaticon-car:before { 		content: "\e003"; right: .1em; }
+.flaticon-train:before { 	content: "\e00d"; right: .1em; }
+.flaticon-plane:before { 	content: "\e006"; right: .1em; }
+
+.flaticon-edit:before {  	content: "\e000"; }
+.flaticon-delete:before {   content: "\e00e"; }
+.flaticon-swap:before { 	content: "\e00a"; }
+
+.flaticon-info:before { 	content: "\e007"; font-size: .95em; left: .4em; }
+.flaticon-tshirt:before {   content: "\e00f"; font-size: .9em; }
+.flaticon-payment:before {  content: "\e002"; }
+.flaticon-confirm:before {  content: "\e004"; }
+
+.flaticon-dates:before {    content: "\e00c"; left: .1em; line-height: 1.3em; }
+.flaticon-address:before {  content: "\e009"; left: .3em; line-height: 1.3em; }
+.flaticon-courses:before {  content: "\e005"; left: .1em; line-height: 1.3em; }
+.flaticon-teachers:before { content: "\e010"; font-size: 2em !important; line-height: .5em; margin: 0 -.08em; }
+.flaticon-pictures:before { content: "\e00b"; font-size: 1em !important; left: .2em; line-height: 1.5em; }
+
+.flaticon-plus:before {     content: "\e001"; }
+  

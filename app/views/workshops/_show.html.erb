@@ -1,0 +1,11 @@
+<div class="site-collection-item-wrapper">
+	<div class="site-collection-item">
+		<%= content_tag :h1, obj.year %>
+		<%= content_tag :ul, class: 'past-workshop' do %>
+			<%= featured_preview obj, :picture %>
+			<%= featured_preview obj, :teacher %>
+			<%= featured_preview obj, :course %>
+		<% end %>
+	</div>
+	<%= render partial: 'partials/authed', locals: { obj: obj } %>
+</div>

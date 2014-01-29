@@ -1,0 +1,5 @@
+<% mode = obj[0] %>
+<%= content_tag :div, '', class: 'transit-mode-badge unselected', data: { "transit-mode" => mode.name.downcase } do %>
+	<%= font_icon(mode.name.downcase) %>
+	<%= content_tag :h2, "By #{obj[0].name}" %>
+<% end %>

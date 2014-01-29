@@ -1,0 +1,5 @@
+<% if form.object.id.nil? %>
+	<%= form.input :picture, label: 'Add new picture: ' %>
+<% else %>
+	<%= image_tag form.object.picture.url %>
+<% end %>

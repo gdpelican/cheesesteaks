@@ -1,0 +1,82 @@
+@import "compass/css3";
+
+@media(min-width: 800px) {
+  
+  html { 
+    background: url('/assets/background_large.jpg') no-repeat center left fixed;
+    @include background-size(cover);  
+    
+    body .container {
+      font-size: 100%;
+      
+      > header {
+       
+        > .logo {
+          width: 6em;
+          height: 6em;
+        }
+        
+        > nav > ul > li {
+          padding: 0 1em; 
+        }
+       
+      }
+      
+      > main.home {
+        h1 { font-size: 550%; }
+      }
+      
+      > main.content {
+        h1 { font-size: 200%; }
+        margin: 4em 4em 0 4em;
+        padding-bottom: 4em;
+      }
+      
+      > main.faqs {
+        .faq { 
+          float: left;
+          width: calc(50% - 2em); 
+        }
+      }
+      
+      .teachers, .courses {
+        ul { @include column-count(2); }
+      }
+      
+      > main.directions {
+        .transit-mode-badge {
+          margin: 1em auto 0 auto;
+          width: 7em;
+          height: 7em;
+          padding: 1em; 
+       
+          i:before { font-size: 9em; } 
+          &.selected { padding-bottom: 0; }     
+        }
+        
+        .directions-list { margin: -1em 1em 1em 1em; }
+        
+      }
+      
+      > main.participants {
+        form.multi-page {     
+          margin-top: 4em;
+          .form-fields { min-height: 13.55em; }
+        }
+      }
+      
+      > main.workshops {
+        form.multi-page {     
+          .form-fields { min-height: 21em; }
+        }
+      }
+           
+      form.multi-page {
+        padding: 1em 2em;
+        .form-sets>li { font-size: 1.5em; }
+        .form-fields { width: 75%; }
+      }
+      
+    }
+  }
+}

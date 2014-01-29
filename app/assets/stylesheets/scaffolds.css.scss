@@ -1,0 +1,110 @@
+@import "compass/css3";
+@import "compass/layout";
+
+$yellow: #CCCC33;
+
+html {
+  height: 100%;
+  font-size: 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  .hidden { display: none; }
+  
+  .frame {
+    pointer-events: none;
+    position: relative; 
+    &:after {
+      content: ' ';
+      @include stretch(0, 0, 0, 0);      
+      @include box-shadow(inset 0 0 4px black, -1px 1px 1px white, 1px -1px 1px white);
+      z-index: 50;
+    }
+    
+    > * { pointer-events: auto; }
+    
+  }
+  
+  body {
+    height: 100%;    
+    margin: 0;
+    padding: 0;
+    
+    .logo {
+      border: 1px solid red;
+      margin: 1em;
+    }
+    
+    > .container {
+      height: auto !important;
+      min-height: 100%;
+      
+       
+      h1 {
+        font-weight: 900;
+        font-family: Arial Black, Arial;
+        text-shadow: 1px -1px 3px black, -1px 1px 5px white;
+      }
+      
+      h2 {
+        padding: 1.25em .5em;
+        font-size: 92%;
+        font-style: italic;  
+      }
+      
+      > header {
+        
+        a {
+          font-size: .8em;
+          text-transform: uppercase;
+          font-family: 'Helvetica';
+          color: black;
+          text-shadow: -1px 1px 1px white;
+          text-decoration: none;
+          
+          &:hover {
+            color:  $yellow;
+          }
+        }
+      }
+      
+      > main {
+        .button {
+          display: inline-block;
+          margin: .5em;
+          color: white;
+          text-decoration: none;
+          padding: .75em 1em;
+          text-shadow: -1px 1px 1px black;
+          font-family: 'Helvetica';
+          font-size: .8em;
+          @include background-image(linear-gradient(top, #AAAA00, #999900));
+          @include box-shadow(-1px 1px 1px 0 black);
+          @include border-radius(.75em);
+          &:hover { color: $yellow; }
+        }
+        .fixed-button { 
+          position: absolute;
+          bottom: -1em;
+          right: -1em;
+          border: 0;
+        }
+      }
+      
+    }
+    
+          
+    > footer {
+      clear: both;
+      width: 100%;
+      margin-top: -3em;
+      height: 3em;
+      background: black;
+      color: white;
+      text-align: right;
+      padding: 0;
+      box-sizing: border-box;
+    } 
+    
+  }
+}

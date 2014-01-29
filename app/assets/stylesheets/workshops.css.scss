@@ -1,0 +1,127 @@
+@import 'compass/layout';
+
+#address-map { width: 100%; margin-bottom: 1em; min-height: 20em; }
+
+.workshops {
+  form {
+    div.ui-datepicker { 
+      background: rgba(0,0,0,.5); 
+      color: #CCCC33;
+      width: 100%;
+      
+      .ui-datepicker-header,
+      .date-range-selected { background: #CCCC33; a { color: black; } }
+      .ui-datepicker-calendar { background: transparent; }
+      td {
+        border: 5px solid transparent;
+        box-shadow: 0 0 3px 0px black;
+        padding: 2.5% 0;
+        margin: 2.5% 0;
+        >a {
+          background: transparent;
+          text-align: center;
+          border: 0;
+          color: #CCC; 
+        }
+      }
+    }
+    .form-fields { 
+      position: relative;
+      fieldset.children {
+        > ol { text-align: center;
+          > .child-selections li {
+            display: inline-block;
+            
+            &.delete-mark:before {
+              content: '\d7';
+              font-size: 5em;
+              font-family: arial black;
+              color: red;
+              @include stretch(0em, 0em, 0em, 0em);
+            }
+            
+            &.child-select {
+              position: relative;
+              padding: .25em;
+              
+              .destroy-trigger {
+                display: none;
+                width: 1.25em;
+                height: 1.25em;
+                box-shadow: -1px 1px 2px black;
+                position: absolute;
+                top: -.25em;
+                right: -.25em;
+                border-radius: 100%;
+                background: rgb(200,150,150);
+                font-weight: bold;
+                font-family: arial;
+                line-height: 1.3em;
+                color: white;
+                cursor: pointer;
+              }
+              &:hover .destroy-trigger { display: block; }
+              
+              img { 
+                box-sizing: border-box;
+                width: 5em;
+                background: rgba(255,255,255,.25);
+                border-radius: .5em;      
+              }  
+              &.selected img, &.selected.add-new { border: 3px solid #CCCC33; }        
+            }
+            &.add-new {
+              &:before { font-size: 2em; }
+              margin: .25em;
+              border-radius: .25em;
+              background-color: rgba(255,255,255,.3);
+              cursor: pointer;
+              padding: 1.5em;
+              vertical-align: top;
+            }
+          }          
+        }
+      }
+    }
+    
+    .child-form {
+      display: none;
+      img { width: 60%; margin: auto; }
+      div { vertical-align: top; }
+      textarea, input[type=text], select { width: 100%; }
+      textarea { height: 10em; }
+      label { vertical-align: top; }
+      .new-teacher { display: none; }
+    }
+  }
+
+  .past-workshops {
+    
+    > li {
+      display: inline-block;
+      width: 50%; 
+      vertical-align: top;
+    }
+    
+    h1 {
+      position: absolute;
+      top: -.5em;
+      right: -.1em;
+      font-size: 300% !important;
+    }
+    
+    .past-workshop {
+      > li {
+        width: 33.3333%;
+        line-height: 0;
+        float: left;
+        img { 
+          width: 100%; 
+          opacity: 0.6;
+          &:hover { opacity: 1; }
+        }
+        &:first-child { width: 66.6666%; }
+      }
+    }
+  }
+}

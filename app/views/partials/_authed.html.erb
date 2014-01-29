@@ -1,0 +1,7 @@
+<% id = obj.year rescue obj.id %>
+<% if @authed %>
+	<%= content_tag :div, class: 'authed-links' do %>
+		<%= link_to font_icon('edit') +   ' Edit', 		eval("edit_#{stringify_class obj}_path(id)"), class: 'button' %>
+		<%= link_to font_icon('delete') + ' Delete',	eval("#{stringify_class obj}_path(id)"), method: :delete, confirm: 'Are you sure?', class: 'button' %>
+	<% end %>
+<% end %>

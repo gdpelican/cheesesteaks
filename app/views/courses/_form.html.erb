@@ -1,0 +1,9 @@
+<%= semantic_form_for @course do |f| %>
+	<%= f.inputs :name, :description, :picture unless @add_teacher %>
+	<%= f.input :teacher, include_blank: false %>
+	<%= f.input :workshop,
+				collection: Workshop.all.map { |workshop| [workshop.year, workshop.id] },
+				selected: @course.workshop_id,
+				include_blank: false %>
+	<%= f.submit %>
+<% end %>

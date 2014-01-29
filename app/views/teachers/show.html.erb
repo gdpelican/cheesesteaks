@@ -1,0 +1,9 @@
+<h1><%= @teacher.full_name %></h1>
+
+<h2>Bio</h2>
+<%= @teacher.bio %>
+
+<h2>Past Courses</h2>
+<%= list_for_view @teacher.courses.scheduled %>
+
+<%= render partial: 'partials/authed', locals: { obj: @teacher } %>

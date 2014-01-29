@@ -1,0 +1,38 @@
+// Place all the styles related to the directions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.directions {
+  .transit-modes-list {
+    text-align: center;
+    list-style-type: none;
+    > li { display: inline-block; }
+    
+    .transit-mode-badge {
+      li { padding: 0 .5em; } 
+      
+      i:before {
+        display: block;
+        line-height: .5em;   
+      }
+      
+      &.unselected:hover, &.selected {
+        background-color: #DDD;
+        background-color: rgba(0,0,0,.1);
+      }
+      
+      &.unselected { border-radius: .5em; }
+      &.selected { border-radius: .5em .5em 0 0; }
+      
+    } 
+    
+  }
+  
+  .directions-list {
+    border-radius: .5em;
+    background-color: rgba(0,0,0,.1);
+    .directions-list-item { 
+      padding: 1em;
+      display: none; 
+    }
+  }
+}

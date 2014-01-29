@@ -1,0 +1,52 @@
+<%= render layout: 'partials/multi_page_form', locals: { url: workshop_path(@workshop.year), obj: @workshop } do |f| %>  
+  <%= f.input :id, as: :hidden, value: f.object.year, input_html: { name: :id } %>
+  <%= f.inputs "", data: { inputs: :dates } do %>
+  		<%= content_tag :h1, 'Dates' %>
+		<%= f.input :start_at, as: :hidden, input_html: { value: date_format(f.object.start_at), data: { field: :start_at } } %>
+		<%= f.input :end_at, as: :hidden, 	input_html: { value: date_format(f.object.end_at), 	 data: { field: :end_at } } %>
+		<%= workshop_datepicker f.object.year, :start_at, :end_at %>
+	<% end %>
+
+	<%= f.inputs "", data: { inputs: :address } do %>
+		<%= content_tag :h1, 'Address' %>
+		<%= toggle_trigger ['.existing-address', '.new-address'] %>
+		<%= content_tag :div, '', class: 'new-address hidden' do %>
+			<%= f.input :new_address %>
+			<%= f.input :new_address_name %>
+		<% end %> 
+		<%= f.input :latitude, as: :hidden, input_html: { value: (f.object.address.latitude rescue nil), data: { field: 'latitude' } } %>
+		<%= f.input :longitude, as: :hidden, input_html: { value: (f.object.address.longitude rescue nil), data: { field: 'longitude' } } %>
+		<%= collection_select f, :address_id, @addresses, { selected: f.object.address_id, wrapper_class: 'existing-address', label: false } %>
+		<%= content_tag :div, '', id: 'address-map' %>
+	<% end %>
+	
+	<%= f.inputs '', class: 'inputs children', data: { inputs: :courses } do %>
+		<%= content_tag :h1, 'Courses' %>
+		<%= render partial: 'workshops/form/children_form', locals: { form: f, 
+																		symbol: :courses, 
+																		children: f.object.courses_with_blank,
+																		featured: f.object.featured } %>
+	<% end %>
+	
+	<%= f.inputs '', class: 'inputs children', data: { inputs: :teachers } do %>
+		<%= content_tag :h1, 'Teachers' %>
+		<%= render partial: 'workshops/form/children_form', locals: { form: f, 
+																	   	symbol: :teachers,
+																	   	children: f.object.teachers_with_blank,
+																	   	featured: f.object.featured } %>
+	<% end %>
+	
+	<%= f.inputs '', class: 'inputs children', data: { inputs: :pictures } do %>
+		<%= content_tag :h1, 'Pictures' %>
+		<%= render partial: 'workshops/form/children_form', locals: { form: f, 
+																		symbol: :pictures,
+																		children: f.object.pictures_with_blank,
+																		featured: f.object.featured } %>
+	<% end %>
+	
+	<%= f.submit class: 'fixed-button button' %>
+<% end %>
+
+<script type="text/javascript">
+	$(document).ready(function() { Cheesesteak.Forms.openFieldset('<%= params[:fieldset] || 'dates' %>') });
+</script>

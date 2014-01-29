@@ -1,0 +1,16 @@
+<%= semantic_form_for obj, url: (if defined? url then url end), html: { class: 'multi-page' } do |f| %>
+  <%= f.input :fieldset, as: :hidden, input_html: { name: :fieldset } %>
+  
+  <%= content_tag :ul, '', class: 'form-sets' do %>
+  	<% f.object.fieldsets.each do |fieldset| %>
+  		<%= form_view fieldset, f.object.free_form %>
+  	<% end %>
+  <% end %>
+  
+  <%= content_tag :div, '', class: 'form-fields' do %>
+  	<%= yield f %>
+  <% end %>
+  
+  <%= content_tag :div, '', class: 'clear' %>
+  
+<% end %>

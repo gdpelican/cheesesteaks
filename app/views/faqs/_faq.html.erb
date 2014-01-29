@@ -1,0 +1,8 @@
+<%= content_tag :div, class: "faq faq-#{even_or_odd}" do %>
+	<%= content_tag :div, faq.question, class: 'question' %>
+	<%= content_tag :details, class: 'answer' do 
+		content_tag(:summary, '') +
+		faq.answer 
+	end %>
+	<%= render partial: 'partials/authed', locals: { obj: faq } if @authed %>
+<% end %>

@@ -1,0 +1,18 @@
+<% use_swap_form = form.object.id.nil? && @unused_teachers.any? %>
+<% if use_swap_form %>
+	<%= toggle_trigger ['.existing-teacher', '.new-teacher'] %>
+	<%= form.input :existing_workshop_id, as: :hidden, value: @workshop.year %>
+	<%= collection_select(form, :existing_teacher_id, @unused_teachers, { wrapper_class: 'existing-teacher bold clear', label: 'Add an existing teacher', include_blank: true }) %>
+<% end %>
+<%= content_tag :div, '', class: "clear #{use_swap_form ? 'new-teacher' : 'edit-teacher'}"  do %>
+	<%= content_tag :label, 'Create a new teacher', class: 'bold block' if form.object.id.nil? %>
+	<div class="inline-block one-third">
+		<%= image_tag form.object.picture.url %>
+		<%= form.input :picture, label: false %>
+	</div>
+	<div class="inline-block two-thirds">
+		<%= form.input :first_name, label: false, wrapper_html: { class: 'inline-block one-half-padded' }, input_html: { placeholder: 'First name...' } %>
+		<%= form.input :last_name, label: false, wrapper_html: { class: 'inline-block one-half' }, input_html: { placeholder: 'Last name...' } %>
+		<%= form.input :bio, as: :text, label: false, input_html: { placeholder: 'Enter teacher bio...' } %>
+	</div>
+<% end %>

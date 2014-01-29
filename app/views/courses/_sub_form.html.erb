@@ -1,0 +1,9 @@
+<%= content_tag :div, '', class: 'inline-block one-third' do %>
+	<%= image_tag form.object.picture.url %>
+	<%= form.input :picture, label: false %>
+<% end %>
+<%= content_tag :div, '', class: 'inline-block two-thirds' do %>
+	<%= form.input :name, label: false, input_html: { placeholder: 'New course name...' } %>
+	<%= form.input :description, as: :text, label: false, input_html: { placeholder: 'Enter description...' } %>
+	<%= collection_select form, :teacher_id, @workshop.teachers.select { |t| t.id }, { selected: form.object.teacher_id, include_blank: true, label: false } %>
+<% end %>

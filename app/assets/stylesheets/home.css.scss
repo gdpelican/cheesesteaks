@@ -1,0 +1,18 @@
+@import "compass/css3";
+
+body > .container > main.home {
+  
+  height: 12em;
+  position: absolute;
+  top: 35%;
+  top: calc(43% - 6em);
+  width: 75%;
+  left: 15%;
+  
+  > h2 {
+    padding: 1.25em .5em;
+    font-size: 92%;
+    font-style: italic;  
+  }
+  
+}

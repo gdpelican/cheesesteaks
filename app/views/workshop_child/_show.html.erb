@@ -1,0 +1,10 @@
+<%= content_tag :div, class: 'workshop-child-wrapper site-collection-item-wrapper' do %>
+	<%= content_tag :div, class: 'workshop-child site-collection-item' do %>
+		<%= content_tag :figure, image_tag(obj.picture.url(:thumb), alt: obj.name.parameterize), class: 'workshop-child-image' if obj.has_image? %>
+		<%= content_tag :div, class: "workshop-child-info #{'no-image' if !obj.has_image?}" do %>
+			<%= yield %>
+		<% end %>
+		<%= content_tag :div, nil, class: 'workshop-child-footer' %>
+	<% end %>
+	<%= render partial: 'partials/authed', locals: { obj: obj } %>
+<% end %>

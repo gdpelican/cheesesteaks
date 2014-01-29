@@ -1,0 +1,17 @@
+.flash {
+  display: none;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+  padding: 1.5em;
+  color: black;
+  text-shadow: -1px 1px 2px white;
+  font-size: 1em;
+  font-family: fantasy;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+#error { background: rgba(255, 0, 0, .5); }
+#notice { background: rgba(0, 255, 0, .5); }

@@ -1,0 +1,6 @@
+<h1>Philadelphia Stage Combat Workshop <%= @workshop.year %></h1>
+
+<%= link_to 'View Teachers', workshop_teachers_path(@workshop.year), class: 'button' %>
+<%= link_to 'View Courses', workshop_courses_path(@workshop.year), class: 'button' %>
+
+<%= render partial: 'partials/authed', locals: { obj: @workshop } %>

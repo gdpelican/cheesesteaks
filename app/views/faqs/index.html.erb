@@ -1,0 +1,10 @@
+<h1>FAQs</h1>
+<% @faqs.each_slice(2) do |faq_pair| %>
+	<%= content_tag :div, class:'faq-row' do %>
+		<%= render partial: 'faqs/faq', locals: { faq: faq_pair[0], even_or_odd: 'odd' } %>
+		<%= render partial: 'faqs/faq', locals: { faq: faq_pair[1], even_or_odd: 'even' } if faq_pair[1] %>
+		<%= content_tag :div, '', class: 'clear' %>
+	<% end %>
+<% end %>
+
+<%= link_to 'New Faq', new_faq_path, class: 'button new-faq' if @authed%>

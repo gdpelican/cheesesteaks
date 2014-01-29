@@ -1,0 +1,48 @@
+form.multi-page {
+
+  .form-sets, .form-fields { float: left; }    
+  
+  .form-sets {
+    > li { 
+      
+      padding: .01em 0;
+      &.selected {
+        background: rgba(0,0,0,.1);
+        border-radius: 100% 0 0 100%;
+        > div { 
+          background: rgb(200, 200, 50);
+          background: rgba(200, 200, 50, .8); 
+        }
+      }
+      
+      > div {
+        padding: .5em;
+        margin: .25em; 
+        border: 3px solid;
+        border-radius: 100%;
+      }      
+    }
+  }
+  
+  .form-fields {
+    h1 { text-align: center; }
+    padding: 2em;
+    background: rgba(0,0,0,.1);
+    border-radius: 0 .5em .5em 0;
+    position: relative;
+    legend { font-weight: bold; }  
+    
+    fieldset.inputs { 
+      display: none;
+      &:first-child { display: block; }
+    }
+    
+    .toggle-trigger { 
+      float: right;
+      text-decoration: none; 
+      color: black;
+    }
+    
+  }
+  
+}

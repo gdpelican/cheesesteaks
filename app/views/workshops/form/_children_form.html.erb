@@ -1,0 +1,19 @@
+<%= content_tag :ul, '', class: 'child-selections' do %>
+	<% children.each do |obj| %>
+		<% new_record = obj.id.nil? %>
+		<%= content_tag :li, class: "child-select#{' flaticon-plus add-new' if new_record }", data: { value: obj.id || 'new' }  do %>
+			<% if not new_record %>
+				<%= link_to image_tag(obj.picture.url(:thumb)), 'javascript:;', title: obj.name %>
+				<%= content_tag :div, '×', class: 'destroy-trigger' %>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>
+
+<%= form.semantic_fields_for symbol do |child| %>
+	<%= content_tag :ul, '', class: "child-form #{symbol}-form", data: { id: child.object.id || 'new' } do %>
+		<%= child.input :id, 	   as: :hidden, input_html: { data: { field: :id } } %>
+		<%= child.input :_destroy, as: :hidden, input_html: { data: { field: :_destroy } } %>		
+   		<%= render partial: "#{symbol}/sub_form", locals: { form: child } %>
+   	<% end %>
+<% end %>

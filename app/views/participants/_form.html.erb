@@ -1,0 +1,26 @@
+<%= render layout: 'partials/multi_page_form', locals: { obj: @participant, url: root_path } do |f| %>
+  
+  <%= f.inputs "Basic Info", data: { inputs: :info } do %>
+	  <%= f.input :first_name %>
+	  <%= f.input :last_name %>
+	  <%= f.input :email, as: :email %>
+	  <%= f.input :telephone, as: :phone %>
+	  <%= step_link 2, :tshirt %>
+  <% end %>
+	    
+  <%= f.inputs "T-Shirt", data: { inputs: :tshirt } do %>
+	  <%= f.input :tshirt_type, as: :select, collection: shirt_types, include_blank: false %>
+	  <%= f.input :tshirt_size, as: :select, collection: shirt_sizes, include_blank: false %>
+	  <%= step_link 3, :payment %>
+  <% end %>
+	  
+  <%= f.inputs "Payment", data: { inputs: :payment } do %>
+  	Payment stuff
+    <%= step_link 4, :confirm %>
+  <% end %>
+	  
+  <%= f.inputs "Confirmation", data: {inputs: :confirm } do %>
+  	Confirmation
+  <% end %>
+  
+<% end %>

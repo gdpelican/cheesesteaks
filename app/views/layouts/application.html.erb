@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>The Philadelphia Cheesesteak Stage Combat Workshop</title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= google_maps_script %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	  <%= favicon_link_tag %>
+	</head>
+	<body>
+		<div class="container">
+			<%= render partial: 'partials/flashes' %>
+			<%= render partial: 'partials/header' %>
+			<%= yield :main %>
+		</div>
+		<%= render partial: 'partials/footer' %>
+	</body>
+</html>

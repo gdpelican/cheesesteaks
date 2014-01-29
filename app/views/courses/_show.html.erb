@@ -1,0 +1,8 @@
+<%= render layout: 'workshop_child/show', locals: { obj: obj } do %>
+	<%= content_tag :h1, obj.name %>
+	<%= content_tag :h2 do %>
+		<%= content_tag :span, 'Instructor: ' %>
+		<%= link_to(obj.teacher.full_name, teacher_path(obj.teacher)) %>
+	<% end %>
+	<%= content_tag :div, obj.description %>
+<% end %>

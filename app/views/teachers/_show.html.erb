@@ -1,0 +1,8 @@
+<%= render layout: 'workshop_child/show', locals: {obj: obj } do %>
+	<%= content_tag :h1, obj.full_name %>
+	<%= content_tag :h2 do %>
+		<%= content_tag :span, 'Recent courses: ' %>
+		<%= teacher_course_links(obj.recent_courses) %>
+	<% end if obj.recent_courses.any? %>
+	<%= content_tag :div, obj.bio %>
+<% end %>

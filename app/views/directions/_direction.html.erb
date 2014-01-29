@@ -1,0 +1,9 @@
+<% mode = obj[0] %>
+<% directions = obj[1] %>
+
+<%= content_tag :div, '', class: mode.name.downcase do %>
+	<% directions.each do |direction| %>
+		<%= content_tag :h2, direction.address.name %>
+		<%= direction.directions %>
+	<% end %>
+<% end %>

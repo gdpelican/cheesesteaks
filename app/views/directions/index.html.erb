@@ -1,0 +1,6 @@
+<h1>Directions</h1>
+
+<%= list_for_view @directions, view: 'transit_mode', ul_class: 'transit-modes-list', obj_type: :direction %>
+<%= list_for_view @directions, view: 'direction', 	 ul_class: 'directions-list', li_class: 'directions-list-item', obj_type: :direction %>
+
+<%= link_to 'New Direction', new_direction_path %>

@@ -1,0 +1,17 @@
+<%= semantic_form_for @direction do |f| %>
+
+  <%= collection_select f, :destination_id, @destinations, { selected: @direction.destination_id } %>
+  
+  <%= content_tag :div, '', class: 'new-address' + (@origins.any? ? ' hidden' : '') do %>
+	<%= f.input :new_address %>
+	<%= f.input :new_address_name %>
+  <% end %>
+  <%= toggle_trigger ['.existing-address', '.new-address'] if @origins.any? %>
+  <%= collection_select f, :address_id, @origins, { selected: @direction.address_id, wrapper_class: 'existing-address' } %>
+  
+  <%= collection_select f, :transit_mode_id, @transit_modes, { selected: @direction.transit_mode_id } %>
+  				
+  <%= f.input :directions, as: :text %>
+  
+  <%= f.action :submit, :as => :input %>
+<% end %>
